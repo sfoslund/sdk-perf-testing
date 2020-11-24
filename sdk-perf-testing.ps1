@@ -1,6 +1,6 @@
 ###### Configuration ######
 $NumIterations=10
-$TestSdkVersion='5.0.100'
+$TestSdkVersion=' 6.0.100-alpha.1.20568.7'
 [ScriptBlock[][]]$SDKCommands = @(
     ($null, {dotnet -h}, $null),
     ($null, {dotnet --list-sdks}, $null),
@@ -9,7 +9,7 @@ $TestSdkVersion='5.0.100'
     ({dotnet new sln;dotnet new console -o console}, {dotnet sln add ./console}, $null),
     ({dotnet new tool-manifest;dotnet tool install dotnetsay}, {dotnet tool list}, $null)
 )
-$ResultFilePath="./SdkPerf.txt"
+$ResultFilePath="./NewParserPerf-6-0-100-alpha-1-20568-7.txt"
 ###########################
 
 function Invoke-Iteration($Iteration, $PreExpression, $ExpressionToMeasure, $PostExpression)
