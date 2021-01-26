@@ -1,15 +1,15 @@
 ###### Configuration ######
 $NumIterations=10
-$TestSdkVersion='5.0.100'
+$TestSdkVersion=' 6.0.100-dev'
 [ScriptBlock[][]]$SDKCommands = @(
-    ($null, {dotnet -h}, $null),
-    ($null, {dotnet --list-sdks}, $null),
-    ({dotnet new console}, {dotnet build}, $null),
-    ({dotnet new console}, {dotnet publish}, $null),
+    ({dotnet new wpf}, {dotnet -h}, $null),
+    ({dotnet new wpf}, {dotnet build -h}, $null),
+    ({dotnet new wpf}, {dotnet build}, $null),
+    ({dotnet new wpf}, {dotnet publish}, $null),
     ({dotnet new sln;dotnet new console -o console}, {dotnet sln add ./console}, $null),
     ({dotnet new tool-manifest;dotnet tool install dotnetsay}, {dotnet tool list}, $null)
 )
-$ResultFilePath="./SdkPerf.txt"
+$ResultFilePath="./NoSuggestChange.txt"
 ###########################
 
 function Invoke-Iteration($Iteration, $PreExpression, $ExpressionToMeasure, $PostExpression)
